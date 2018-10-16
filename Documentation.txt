@@ -1,0 +1,23 @@
+Author: Austin Bearden
+Date Created: 10/11/2018
+Purpose: Save plane from crashing into wall by jumping aboard and flying it to safety
+
+Keep track of state!! When the plane change to having a
+driver, then give arrow control from guy to airplane!
+(Keep track with boolean)
+
+
+Usefull Methods:
+
+getImgAngle()
+setImgAngle(angle) <-- Radians or degrees?
+
+changeImgAngleBy(degrees)
+changeMoveAngleBy(degrees)
+
+--  Mobile Notes --
+
+We need to build a virtual button to get guys to jump
+We need to build a virtual joystick to control flight of plane
+
+-- -- -- -- -- -- --

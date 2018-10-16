@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!-- 
+    Author: Austin Bearden
+    Date Created: September 23rd, 2018
+    Purpose: Created simple game fro...
+    Using Andy Harris' code example from http://aharrisbooks.net/h5g/h5g_13/platform/
+
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Game Sample : aibearde</title>
+    <script type="text/javascript" src="simpleGame.js"></script>
+    <script type="text/javascript">
+    // sample game
+
+    var scene;
+    var character;
+    var plane;
+
+    function Character() {
+        oneCharacter = new Sprite(scene, "StickMan.png", 55.4, 100);
+        oneCharacter.setSpeed(0);
+        oneCharacter.setPosition(100, 400);
+        oneCharacter.falling = true;
+
+        oneCharacter.checkKeys = function() {
+            if (keysDown[K_LEFT]) {
+                this.changeXby(-5);
+            }
+            if (keysDown[K_RIGHT]) {
+                this.changeXby(5);
+            }
+            if (keysDown[K_UP]) {
+
+                if (this.falling == false) {
+                    this.setImage("StickMan.png");
+                    this.y -= 5;
+                    this.falling = true;
+                    this.addVector(0, 15);
+                } else {
+                    checkFalling();
+                } // end if
+            } // end checkKeys
+        }
+
+        oneCharacter.checkGravity = function() {
+            if (this.falling) {
+                this.addVector(180, 1);
+                // stop if on floor
+                if (this.y >= 550) {
+                    this.setImage("StickMan.png")
+                    this.falling = false;
+                    this.setSpeed(0);
+                } // end if
+            } // end if
+        } // end checkGravity
+
+        return oneCharacter;
+    } // end character def
+
+    //create plane the flies across the screen
+    function Plane() {
+        thePlane = new Sprite(scene, "AirPlaneWithoutMan.png", 150, 100);
+        thePlane.setSpeed(-5);
+        thePlane.setPosition(400, 400);
+        thePlane.falling = false;
+
+        
+        return thePlane;
+    }
+
+    function checkFalling() {
+        character.falling = true;
+    } // end checkFalling
+
+    /*
+    We need to check at all times whether 
+    plane and character at intersecting. If they are.
+    we need guy character to disappear and plane to 
+    chage to image with guy in plane.
+    */
+    function checkTouch() {
+        if(character.collidesWith(plane)) {
+            // remove chacater picture
+            character.hide();
+            // update plane picture
+            plane.changeImage("AirPlaneWithMan.png");
+        }
+    } // end checkTouch
+    
+    function init() {
+        scene = new Scene();
+        character = new Character();
+        plane = new Plane();
+        scene.start();
+    }
+
+    function update() {
+        scene.clear();
+
+        checkTouch();
+
+        character.checkKeys();
+        character.checkGravity();
+     
+        plane.update();
+        character.update();
+        
+    } // end update
+
+    
+    </script>
+</head>
+<body onload = "init()">
+
+</body>
+</html>

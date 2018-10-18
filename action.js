@@ -14,12 +14,12 @@ function Character() {
         var joyDX = joystick.getDiffX();
         var joyDY = joystick.getDiffY();
 
-        if(Math.abs(joyDX) > 0 || Math.abs(joyDX) > 0) {
+        //if(Math.abs(joyDX) > 0 || Math.abs(joyDX) > 0) {
             thisCharacter.changeXby(50 + joyDX);
             thisCharacter.changeYby(50 + joyDY);
-        } else {
+        //} else {
             // do nothing
-        }
+        //}
     };
 
     //return theCharacter when access Character class

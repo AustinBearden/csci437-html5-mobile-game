@@ -9,6 +9,13 @@ function Character() {
     theCharacter.setSpeed(0);
     theCharacter.setPosition(50, 50);
 
+    function checkTouchMove() {
+        var joyDX = joystick.getDiffX();
+        var joyDY = joystick.getDiffY();
+
+        theCharacter.setPosition((50 + joyDX), (50 + joyDY));
+    }
+
     //return theCharacter when access Character class
     return theCharacter;
 }

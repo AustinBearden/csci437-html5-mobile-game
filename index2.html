@@ -11,20 +11,25 @@
         var character;
         // var plane;
         // var bomb;
-        // var joystick;
+        var joystick;
 
         function init() {
             //create instances
             scene = new Scene();
             character = new Character();
-
+            //initialize joystick
+            joystick = new Joy();
+            
             scene.setSize(950, 450);
             scene.start();
+
+
+
         }
 
         function update() {
             scene.clear();
-
+            character.checkTouchMove();
             character.update();
 
         }

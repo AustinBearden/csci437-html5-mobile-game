@@ -1,0 +1,38 @@
+<!DOCTYPE hmtl>
+<html lang="en-US">
+<header>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="simpleGame.js"></script>
+    <script type="text/javascript" src="action.js"></script>
+    <script type="text/javascript">
+
+        // my globals
+        var scene;
+        var character;
+        // var plane;
+        // var bomb;
+        // var joystick;
+
+        function init() {
+            //create instances
+            scene = new Scene();
+            character = new Character();
+
+            scene.setSize(1000, 500);
+            scene.start();
+        }
+
+        function update() {
+            scene.clear();
+
+            character.update();
+
+        }
+    </script>
+</header>
+
+<body onload = "init()">
+    
+    
+</body>
+</html>

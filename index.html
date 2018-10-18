@@ -17,6 +17,7 @@
     var scene;
     var character;
     var plane;
+    var joystick;
 
     function Character() {
         oneCharacter = new Sprite(scene, "StickMan.png", 55.4, 100);
@@ -44,6 +45,10 @@
             } // end checkKeys
         }
 
+        oneCharacter.checkTouch = function() {
+
+        }
+
         oneCharacter.checkGravity = function() {
             if (this.falling) {
                 this.addVector(180, 1);
@@ -65,8 +70,21 @@
         thePlane.setSpeed(-5);
         thePlane.setPosition(400, 400);
         thePlane.falling = false;
+        thePlane.safe = false; // this desides whether the planeha s a man in it or not
 
-        
+        thePlane.switchSafeStae = function() {
+            thePlane.safe = !thePlane.safe;
+        }
+
+        thePlane.checkKeys = function() {
+
+        }
+
+        thePlane.checkTouch = function() {
+
+        }
+
+
         return thePlane;
     }
 
@@ -93,6 +111,9 @@
         scene = new Scene();
         character = new Character();
         plane = new Plane();
+        //create joystick
+        joystick = new Joy();
+
         scene.start();
     }
 

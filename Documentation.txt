@@ -21,3 +21,9 @@ We need to build a virtual button to get guys to jump
 We need to build a virtual joystick to control flight of plane
 
 -- -- -- -- -- -- --
+
+
+We need two build the app so that it is both keyboard and touch screen compatible
+
+-> Virtual button
+-> Keyboard

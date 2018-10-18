@@ -9,12 +9,18 @@ function Character() {
     theCharacter.setSpeed(0);
     theCharacter.setPosition(50, 50);
 
-    function checkTouchMove() {
+    theCharacter.checkTouchMove = function() {
+        console.log("Hey man, I am in the checkTouchMove() method!!");
         var joyDX = joystick.getDiffX();
         var joyDY = joystick.getDiffY();
 
-        theCharacter.setPosition((50 + joyDX), (50 + joyDY));
-    }
+        if(Math.abs(joyDX) > 0 || Math.abs(joyDX) > 0) {
+            thisCharacter.changeXby(50 + joyDX);
+            thisCharacter.changeYby(50 + joyDY);
+        } else {
+            // do nothing
+        }
+    };
 
     //return theCharacter when access Character class
     return theCharacter;

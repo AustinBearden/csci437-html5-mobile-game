@@ -15,8 +15,8 @@ function Character() {
         var joyDY = joystick.getDiffY();
 
         //if(Math.abs(joyDX) > 0 || Math.abs(joyDX) > 0) {
-            thisCharacter.changeXby(50 + joyDX);
-            thisCharacter.changeYby(50 + joyDY);
+            this.changeXby(50 + joyDX);
+            this.changeYby(50 + joyDY);
         //} else {
             // do nothing
         //}

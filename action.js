@@ -11,8 +11,8 @@ function Character() {
 
     theCharacter.checkTouchMove = function() {
         console.log("Hey man, I am in the checkTouchMove() method!!");
-        var joyDX = joystick.getDiffX();
-        var joyDY = joystick.getDiffY();
+        var joyDY = joystick.getDiffX();
+        var joyDX = joystick.getDiffY();
 
         if(joyDX > 0 || joyDX < 0 || joyDY > 0 || joyDY < 0) {
             this.changeXby(50 + joyDX);

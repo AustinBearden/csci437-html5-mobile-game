@@ -15,12 +15,17 @@ function Character() {
     theCharacter.checkTouchMove = function() {
         console.log("Hey man, I am in the checkTouchMove() method!!");
 
-        var virtKeys = true;
-        var joyDX = joystick.getDiffX();
-        var joyDY = joystick.getDiffY();
+        // we want joystick to control guy before collision
+        if(!theCharacter.hasCollided) {
+            var virtKeys = true;
+            var joyDX = joystick.getDiffX();
+            var joyDY = joystick.getDiffY();
 
-        this.changeXby(joyDX);
-        this.changeYby(joyDY);
+            this.changeXby(joyDX);
+            this.changeYby(joyDY);
+
+        }
+        
 
       
     };
@@ -33,6 +38,20 @@ function Plane() {
     thePlane = new Sprite(scene, "AirPlaneWithoutMan.png", 100, 100);
     thePlane.setSpeed(2);
     thePlane.setPosition(0, 50);
+
+    thePlane.checkTouchMove = function() {
+
+        // we want joystick to control airplane after collision
+        if(character.hasCollided) {
+            var virtKeys = true;
+            var joyDX = joystick.getDiffX();
+            var joyDY = joystick.getDiffY();
+
+            this.changeXby(joyDX);
+            this.changeYby(joyDY);
+        }
+
+    };
 
 
     return thePlane;

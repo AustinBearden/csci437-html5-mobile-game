@@ -20,12 +20,8 @@ function Character() {
     theCharacter.hasCollided = false;
 
     theCharacter.checkCharacterTouchMove = function() {
-        console.log("Hey man, I am in the checkTouchMove() method!!");
-
         // we want joystick to control guy before collision
-        console.log(!this.hasCollided);
         if(!this.hasCollided) {
-            console.log("Yeah man!!");
             var virtKeys = true;
             var joyDX = joystick.getDiffX();
             var joyDY = joystick.getDiffY();
@@ -49,9 +45,7 @@ function Plane() {
     thePlane.checkPlaneTouchMove = function() {
 
         // we want joystick to control airplane after collision
-        console.log(character.hasCollided);
         if(character.hasCollided) {
-            console.log("Hey man!!!");
             //var virtKeys = true;
             var joyNewDX = joystick.getDiffX();
             var joyNewDY = joystick.getDiffY();
@@ -95,7 +89,7 @@ function LandingPad() {
     return theLandingPad;
 }
 
-// checkCollision function
+// checkGuyPlaneCollision function
 function checkGuyPlaneCollision() {
     if(character.collidesWith(plane)) {
         //change value of hasCollided variable
@@ -104,5 +98,14 @@ function checkGuyPlaneCollision() {
     if(character.hasCollided) {
         character.hide();
         plane.changeImage("AirPlaneWithMan.png");
+    }
+}
+
+// checkPlanePadCollision function
+function checkPlanePadCollision() {
+    if(plane.collidesWith(LandingPad)) {
+        plane.setSpeed(0);
+    } else {
+        // nothing
     }
 }

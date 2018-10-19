@@ -16,7 +16,7 @@ function Character() {
         var joyDX = joystick.getDiffX();
         var joyDY = joystick.getDiffY();
 
-        this.setPos(2*joyDX, 2*joyDY);
+        this.setPos(5*joyDX, 5*joyDY);
       
     };
 

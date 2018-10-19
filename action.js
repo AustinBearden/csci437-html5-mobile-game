@@ -55,7 +55,6 @@ function Plane() {
 
     };
 
-
     return thePlane;
 }
 

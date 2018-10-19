@@ -9,7 +9,7 @@ function Character() {
     theCharacter.setSpeed(0);
     theCharacter.setPosition(50, 50);
     //adding bounding specifications for my Character
-    theCharacter.setBoundAction(STOP);
+    theCharacter.setBoundAction(BOUNCE);
 
     theCharacter.checkTouchMove = function() {
         console.log("Hey man, I am in the checkTouchMove() method!!");

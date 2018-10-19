@@ -14,6 +14,8 @@ function Character() {
         var joyDX = joystick.getDiffX();
         var joyDY = joystick.getDiffY();
 
+        alert(joyDX, joyDY);
+
         if(joyDX > 0 || joyDX < 0 || joyDY > 0 || joyDY < 0) {
             this.changeXby(50 + (joyDX/50));
             this.changeYby(50 + (joyDY/50));

@@ -24,7 +24,15 @@ function Character() {
       
     };
 
-
     //return theCharacter when access Character class
     return theCharacter;
+}
+
+function Plane() {
+    thePlane = new Sprite(scene, "AirPlaneWithoutMan.png", 100, 100);
+    thePlane.setSpeed(2);
+    thePlane.setPosition(0, 50);
+
+
+    return thePlane;
 }

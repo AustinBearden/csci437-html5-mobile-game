@@ -9,7 +9,7 @@
         // my globals
         var scene;
         var character;
-        // var plane;
+        var plane;
         // var bomb;
         var joystick;
 
@@ -17,6 +17,7 @@
             //create instances
             scene = new Scene();
             character = new Character();
+            plane = new Plane();
             //initialize joystick
             joystick = new Joy();
             
@@ -30,6 +31,7 @@
             character.checkTouchMove();
             character.update();
             character.checkBounds();
+            plane.update();
             
         }
     </script>

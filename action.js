@@ -65,7 +65,15 @@ function Bomb() {
     theBomb.setPosition(50, 50);
 
     return theBomb;
-}   
+}
+
+function Tree() {
+    theTree = new Sprite(scene, "Tree.png", 200, 200);
+    theTree.setSpeed(0);
+    theTree.setPosition(100, 354);
+
+    return theTree;
+}
 
 // checkCollision function
 function checkGuyPlaneCollision() {

@@ -11,6 +11,7 @@
         var character;
         var plane;
         var bomb;
+        var tree;
         var joystick;
 
         function init() {
@@ -19,6 +20,7 @@
             character = new Character();
             plane = new Plane();
             bomb = new Bomb();
+            tree = new Tree();
             //initialize joystick
             joystick = new Joy();
             
@@ -36,6 +38,7 @@
             plane.checkPlaneTouchMove();
             plane.update();
             bomb.update();
+            tree.update();
             
         }
     </script>

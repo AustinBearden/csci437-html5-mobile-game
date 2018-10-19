@@ -58,6 +58,15 @@ function Plane() {
     return thePlane;
 }
 
+function Bomb() {
+    theBomb = new Sprite(scene, "bomb.png", 50, 60);
+    theBomb.setMoveAngle(180);
+    theBomb.setSpeed(2);
+    theBomb.setPosition(50, 50);
+
+    return theBomb;
+}   
+
 // checkCollision function
 function checkGuyPlaneCollision() {
     if(character.collidesWith(plane)) {

@@ -40,9 +40,11 @@ function Plane() {
     thePlane.setPosition(0, 50);
 
     thePlane.checkTouchMove = function() {
+        console.log("Yo bro!!");
 
         // we want joystick to control airplane after collision
         if(character.hasCollided) {
+            console.log("Hey man!!!");
             var virtKeys = true;
             var joyDX = joystick.getDiffX();
             var joyDY = joystick.getDiffY();

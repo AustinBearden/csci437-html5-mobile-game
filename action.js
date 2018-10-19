@@ -8,6 +8,8 @@ function Character() {
     theCharacter = new Sprite(scene, "StickMan.png", 55.4, 100);
     theCharacter.setSpeed(0);
     theCharacter.setPosition(50, 50);
+    //adding bounding specifications for my Character
+    theCharacter.setBoundAction(STOP);
 
     theCharacter.checkTouchMove = function() {
         console.log("Hey man, I am in the checkTouchMove() method!!");

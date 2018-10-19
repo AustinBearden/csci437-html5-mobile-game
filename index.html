@@ -8,6 +8,7 @@
 
         // my globals
         var scene;
+        var background;
         var character;
         var plane;
         var bomb;
@@ -18,6 +19,7 @@
         function init() {
             //create instances
             scene = new Scene();
+            background = new Background();
             character = new Character();
             plane = new Plane();
             bomb = new Bomb();
@@ -33,6 +35,7 @@
 
         function update() {
             scene.clear();
+            background.update();
             checkGuyPlaneCollision();
             character.checkCharacterTouchMove();
             character.update();

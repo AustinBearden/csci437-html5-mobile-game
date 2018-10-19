@@ -3,6 +3,13 @@
 // Purpose: Create and HTML5 Mobile Game
 // Description: Game is about saving unmaned jets by jumping aboard them and flying them safely
 
+function Background() {
+    theBackground = new Sprite(scene, "SkyGrass.png", 950, 450);
+    theBackground.setSpeed(0);
+    theBackground.setPosition(475, 225);
+    
+    return theBackground;
+}
 
 function Character() {
     theCharacter = new Sprite(scene, "StickMan.png", 55.4, 100);
@@ -37,7 +44,7 @@ function Character() {
 function Plane() {
     thePlane = new Sprite(scene, "AirPlaneWithoutMan.png", 100, 100);
     thePlane.setSpeed(2);
-    thePlane.setPosition(0, 50);
+    thePlane.setPosition(0, 200);
 
     thePlane.checkPlaneTouchMove = function() {
 
@@ -68,9 +75,9 @@ function Bomb() {
 }
 
 function Tree() {
-    theTree = new Sprite(scene, "Tree.png", 200, 200);
+    theTree = new Sprite(scene, "Tree.png", 200, 300);
     theTree.setSpeed(0);
-    theTree.setPosition(550, 354);
+    theTree.setPosition(550, 305);
 
     return theTree;
 }

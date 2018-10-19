@@ -16,6 +16,7 @@ function Character() {
         console.log("Hey man, I am in the checkTouchMove() method!!");
 
         // we want joystick to control guy before collision
+        console.log(!this.hasCollided);
         if(!this.hasCollided) {
             console.log("Yeah man!!");
             var virtKeys = true;
@@ -26,8 +27,6 @@ function Character() {
             this.changeYby(joyDY);
 
         }
-        
-
       
     };
 
@@ -46,12 +45,12 @@ function Plane() {
         console.log(character.hasCollided);
         if(character.hasCollided) {
             console.log("Hey man!!!");
-            var virtKeys = true;
-            var joyDX = joystick.getDiffX();
-            var joyDY = joystick.getDiffY();
+            //var virtKeys = true;
+            var joyNewDX = joystick.getDiffX();
+            var joyNewDY = joystick.getDiffY();
 
-            this.changeXby(joyDX);
-            this.changeYby(joyDY);
+            this.changeXby(joyNewDX);
+            this.changeYby(joyNewDY);
         }
 
     };

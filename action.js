@@ -103,7 +103,7 @@ function checkGuyPlaneCollision() {
 
 // checkPlanePadCollision function
 function checkPlanePadCollision() {
-    if(plane.collidesWith(LandingPad)) {
+    if(plane.collidesWith(landingPad)) {
         plane.setSpeed(0);
     } else {
         // nothing

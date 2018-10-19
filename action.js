@@ -62,6 +62,11 @@ function Plane() {
 
     };
 
+    //method for stopping the movement of the plan
+    thePlane.stopMoving = function() {
+        thePlane.setSpeed(0);
+    };
+
     return thePlane;
 }
 

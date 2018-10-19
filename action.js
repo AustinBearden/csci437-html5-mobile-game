@@ -12,11 +12,12 @@ function Character() {
     theCharacter.setBoundAction(WRAP);
     theCharacter.hasCollided = false;
 
-    theCharacter.checkTouchMove = function() {
+    theCharacter.checkCharacterTouchMove = function() {
         console.log("Hey man, I am in the checkTouchMove() method!!");
 
         // we want joystick to control guy before collision
         if(!this.hasCollided) {
+            console.log("Yeah man!!");
             var virtKeys = true;
             var joyDX = joystick.getDiffX();
             var joyDY = joystick.getDiffY();
@@ -39,9 +40,10 @@ function Plane() {
     thePlane.setSpeed(2);
     thePlane.setPosition(0, 50);
 
-    thePlane.checkTouchMove = function() {
+    thePlane.checkPlaneTouchMove = function() {
 
         // we want joystick to control airplane after collision
+        console.log(character.hasCollided);
         if(character.hasCollided) {
             console.log("Hey man!!!");
             var virtKeys = true;

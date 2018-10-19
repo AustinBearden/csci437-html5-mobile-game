@@ -29,10 +29,10 @@
         function update() {
             scene.clear();
             checkGuyPlaneCollision();
-            character.checkTouchMove();
+            character.checkCharacterTouchMove();
             character.update();
             character.checkBounds();
-            plane.checkTouchMove();
+            plane.checkPlaneTouchMove();
             plane.update();
             
         }

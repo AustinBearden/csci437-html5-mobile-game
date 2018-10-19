@@ -7,7 +7,7 @@
 function Character() {
     theCharacter = new Sprite(scene, "StickMan.png", 55.4, 100);
     theCharacter.setSpeed(0);
-    theCharacter.setPosition(50, 50);
+    theCharacter.setPosition(400, 50);
     //adding bounding specifications for my Character
     theCharacter.setBoundAction(WRAP);
     theCharacter.hasCollided = false;

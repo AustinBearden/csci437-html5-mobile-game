@@ -11,11 +11,12 @@ function Character() {
 
     theCharacter.checkTouchMove = function() {
         console.log("Hey man, I am in the checkTouchMove() method!!");
+
+        var virtKeys = true;
         var joyDX = joystick.getDiffX();
         var joyDY = joystick.getDiffY();
 
-        this.changeXby(joyDX/50);
-        this.changeYby(joyDY/50);
+        this.setPos(2*joyDX, 2*joyDY);
       
     };
 

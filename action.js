@@ -8,6 +8,8 @@ function Character() {
     theCharacter = new Sprite(scene, "StickMan.png", 55.4, 100);
     theCharacter.setSpeed(0);
     theCharacter.setPosition(50, 50);
+    // theCharacter.joyChX = joyDX;
+    // theCharacter.joyChY = joyDY;
 
     theCharacter.checkTouchMove = function() {
         console.log("Hey man, I am in the checkTouchMove() method!!");
@@ -15,10 +17,11 @@ function Character() {
         var virtKeys = true;
         var joyDX = joystick.getDiffX();
         var joyDY = joystick.getDiffY();
-
-        this.setPos(5*joyDX, 5*joyDY);
+        theCharacter.joyChX = joyDX;
+        theCharacter.joyChY = joyDY;
       
     };
+
 
     //return theCharacter when access Character class
     return theCharacter;

@@ -28,6 +28,7 @@
 
         function update() {
             scene.clear();
+            checkGuyPlaneCollision();
             character.checkTouchMove();
             character.update();
             character.checkBounds();

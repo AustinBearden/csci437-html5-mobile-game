@@ -10,6 +10,7 @@ function Character() {
     theCharacter.setPosition(50, 50);
     //adding bounding specifications for my Character
     theCharacter.setBoundAction(WRAP);
+    theCharacter.hasCollided = false;
 
     theCharacter.checkTouchMove = function() {
         console.log("Hey man, I am in the checkTouchMove() method!!");
@@ -35,4 +36,16 @@ function Plane() {
 
 
     return thePlane;
+}
+
+// checkCollision function
+function checkGuyPlaneCollision() {
+    if(character.collidesWith(plane)) {
+        //change value of hasCollided variable
+        character.hasCollided = true;
+    }
+    if(character.hasCollided) {
+        character.hide();
+        plane.changeImage("AirPlaneWithMan.png");
+    }
 }

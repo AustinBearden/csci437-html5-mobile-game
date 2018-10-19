@@ -12,6 +12,7 @@
         var plane;
         var bomb;
         var tree;
+        var landingPad;
         var joystick;
 
         function init() {
@@ -21,6 +22,7 @@
             plane = new Plane();
             bomb = new Bomb();
             tree = new Tree();
+            landingPad = new LandingPad();
             //initialize joystick
             joystick = new Joy();
             
@@ -39,6 +41,7 @@
             plane.update();
             bomb.update();
             tree.update();
+            landingPad.update();
             
         }
     </script>

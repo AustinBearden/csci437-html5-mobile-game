@@ -70,9 +70,17 @@ function Bomb() {
 function Tree() {
     theTree = new Sprite(scene, "Tree.png", 200, 200);
     theTree.setSpeed(0);
-    theTree.setPosition(100, 354);
+    theTree.setPosition(550, 354);
 
     return theTree;
+}
+
+function LandingPad() {
+    theLandingPad = new Sprite(scene, "LandingPad.png", 275, 30);
+    theLandingPad.setSpeed(0);
+    theLandingPad.setPosition(750, 440);
+
+    return theLandingPad;
 }
 
 // checkCollision function

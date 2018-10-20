@@ -38,7 +38,7 @@ function Character() {
 }
 
 function Plane() {
-    thePlane = new Sprite(scene, "AirPlaneWithoutMan.png", 100, 100);
+    thePlane = new Sprite(scene, "AirPlan.png", 100, 100);
     thePlane.setSpeed(2);
     thePlane.setPosition(0, 200);
 
@@ -65,7 +65,7 @@ function Plane() {
 }
 
 function Bomb() {
-    theBomb = new Sprite(scene, "bomb.png", 50, 60);
+    theBomb = new Sprite(scene, "bomb.png", 25, 30);
     theBomb.setMoveAngle(180);
     theBomb.setSpeed(2);
     theBomb.setPosition(50, 50);
@@ -97,7 +97,7 @@ function checkGuyPlaneCollision() {
     }
     if(character.hasCollided) {
         character.hide();
-        plane.changeImage("AirPlaneWithMan.png");
+        plane.changeImage("AirPlanWithMan.png");
     }
 }
 

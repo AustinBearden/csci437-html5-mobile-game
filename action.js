@@ -118,6 +118,23 @@ function checkBombPlaneCollision() {
         plane.score = plane.score + 1;
         console.log(plane.score);
     }
+}
 
+// planeTreeCollision
+function checkPlaneTreeCollision() {
+    if(plane.collidesWith(tree)) {
+        plane.score = plane.score + 1;
+        console.log(plane.score);
+    }
+}
+
+// checks for plane's death
+function planeDead() {
+    if(plane.score > 0) {
+        //game over
+        console.log("Plane dead!!");
+        scene.stop();
+        
+    }
 }
 

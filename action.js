@@ -134,7 +134,8 @@ function planeDead() {
         //game over
         console.log("Plane dead!!");
         scene.stop();
-        
+        document.location.href = "";
+
     }
 }
 

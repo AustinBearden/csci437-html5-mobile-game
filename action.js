@@ -103,7 +103,7 @@ function LostGame() {
 }
 
 function WinGame() {
-    theWinGame = new Sprite(scene, "YouWin.png", 450, 450);
+    theWinGame = new Sprite(scene, "YouWin.png", 600, 450);
     theWinGame.setSpeed(0);
     theWinGame.setPosition(440, 240);
 

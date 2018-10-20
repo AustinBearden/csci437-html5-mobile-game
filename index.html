@@ -15,6 +15,7 @@
         var tree;
         var landingPad;
         var lostGame;
+        var winGame;
         var joystick;
 
         function init() {
@@ -28,6 +29,8 @@
             landingPad = new LandingPad();
             lostGame = new LostGame();
             lostGame.hide();
+            winGame = new WinGame();
+            winGame.hide();
             //initialize joystick
             joystick = new Joy();
             
@@ -53,6 +56,7 @@
             tree.update();
             landingPad.update();
             lostGame.update();
+            winGame.update();
             
         }
     </script>

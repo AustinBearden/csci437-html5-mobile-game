@@ -43,6 +43,8 @@ function Plane() {
     thePlane.setPosition(0, 200);
     //score variable
     thePlane.score = 0;
+    //boolean variable that 
+    thePlane.boolWin = false;
 
     thePlane.checkPlaneTouchMove = function() {
 
@@ -100,6 +102,14 @@ function LostGame() {
     return theLostGame;
 }
 
+function WinGame() {
+    theWinGame = new Sprite(scene, "YouWin.png", 450, 450);
+    theWinGame.setSpeed(0);
+    theWinGame.setPosition(440, 240);
+
+    return theWinGame;
+}
+
 // checkGuyPlaneCollision function
 function checkGuyPlaneCollision() {
     if(character.collidesWith(plane)) {
@@ -116,8 +126,13 @@ function checkGuyPlaneCollision() {
 function checkPlanePadCollision() {
     if(plane.collidesWith(landingPad)) {
         plane.setSpeed(0);
+        plane.boolWin = true;
     } else {
         // nothing
+    }
+
+    if(plane.boolWin) {
+        winGame.show();
     }
 }
 

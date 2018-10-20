@@ -38,7 +38,7 @@ function Character() {
 }
 
 function Plane() {
-    thePlane = new Sprite(scene, "AirPlan.png", 100, 100);
+    thePlane = new Sprite(scene, "AirPlan.png", 150, 100);
     thePlane.setSpeed(2);
     thePlane.setPosition(0, 200);
 

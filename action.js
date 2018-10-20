@@ -41,6 +41,8 @@ function Plane() {
     thePlane = new Sprite(scene, "AirPlan.png", 150, 100);
     thePlane.setSpeed(2);
     thePlane.setPosition(0, 200);
+    //score variable
+    thePlane.score = 0;
 
     thePlane.checkPlaneTouchMove = function() {
 
@@ -108,4 +110,13 @@ function checkPlanePadCollision() {
     } else {
         // nothing
     }
+}
+
+// bombPlaneCollision
+function checkBombPlaneCollision() {
+    if(bomb.collidesWith(plane)) {
+        plane.score = plane.score + 1;
+        console.log(plane.score);
+    }
+
 }

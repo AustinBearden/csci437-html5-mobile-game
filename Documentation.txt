@@ -1,6 +1,8 @@
 Author: Austin Bearden
-Date Created: 10/11/2018
-Purpose: Save plane from crashing into wall by jumping aboard and flying it to safety
+Date Created: 10/11/2018 - 10/19/2018
+Purpose: Save plane from crashing into bomb and tree by jumping aboard and flying it to safety
+
+Original Algorithm (Actual algorithm has changed as I created game): **See finite state diagram for updated logic
 
 Keep track of state!! When the plane change to having a
 driver, then give arrow control from guy to airplane!
@@ -21,7 +23,6 @@ We need to build a virtual button to get guys to jump
 We need to build a virtual joystick to control flight of plane
 
 -- -- -- -- -- -- --
-
 
 We need two build the app so that it is both keyboard and touch screen compatible
 

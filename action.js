@@ -20,15 +20,35 @@ function Character() {
     theCharacter.hasCollided = false;
 
     theCharacter.checkCharacterTouchMove = function() {
-        // we want joystick to control guy before collision
-        if(!this.hasCollided) {
-            var virtKeys = true;
-            var joyDX = joystick.getDiffX();
-            var joyDY = joystick.getDiffY();
+        //virtual joystick if touchscreen
+        if(scene.touchable) {
+            // we want joystick to control guy before collision
+            if(!this.hasCollided) {
+                var virtKeys = true;
+                var joyDX = joystick.getDiffX();
+                var joyDY = joystick.getDiffY();
 
-            this.changeXby(joyDX);
-            this.changeYby(joyDY);
+                this.changeXby(joyDX);
+                this.changeYby(joyDY);
 
+            }
+        // keyboard if no touchscreen
+        } else {
+            if(!this.hasCollided) {
+                if(keysDown[K_UP]) {
+                    this.changeYby(-7);
+                }
+                if(keysDown[K_DOWN]) {
+                    this.changeYby(7);
+                }
+                if(keysDown[K_LEFT]) {
+                    this.changeXby(-7);
+                }
+                if(keysDown[K_RIGHT]) {
+                    this.changeXby(7);
+                }
+
+            }
         }
       
     };
@@ -48,16 +68,35 @@ function Plane() {
 
     thePlane.checkPlaneTouchMove = function() {
 
-        // we want joystick to control airplane after collision
-        if(character.hasCollided) {
-            //var virtKeys = true;
-            var joyNewDX = joystick.getDiffX();
-            var joyNewDY = joystick.getDiffY();
+        // virtual joystick if touchscreen
+        if(scene.touchable) {
+            // we want joystick to control airplane after collision
+            if(character.hasCollided) {
+                //var virtKeys = true;
+                var joyNewDX = joystick.getDiffX();
+                var joyNewDY = joystick.getDiffY();
 
-            this.changeXby(joyNewDX);
-            this.changeYby(joyNewDY);
+                this.changeXby(joyNewDX);
+                this.changeYby(joyNewDY);
+            }
+        } else {
+            if(character.hasCollided) {
+                if(keysDown[K_UP]) {
+                    this.changeYby(-7);
+                }
+                if(keysDown[K_DOWN]) {
+                    this.changeYby(7);
+                }
+                if(keysDown[K_LEFT]) {
+                    this.changeXby(-7);
+                }
+                if(keysDown[K_RIGHT]) {
+                    this.changeXby(7);
+                }
+
+            }
+
         }
-
     };
 
     //method for stopping the movement of the plan

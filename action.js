@@ -91,6 +91,15 @@ function LandingPad() {
     return theLandingPad;
 }
 
+function LostGame() {
+    theLostGame = new Sprite(scene, "YouLost.png", 450, 450);
+    theLostGame.setSpeed(0);
+    theLostGame.setPosition(440, 240);
+    console.log("I am here");
+
+    return theLostGame;
+}
+
 // checkGuyPlaneCollision function
 function checkGuyPlaneCollision() {
     if(character.collidesWith(plane)) {
@@ -133,6 +142,7 @@ function planeDead() {
     if(plane.score > 0) {
         //game over
         console.log("Plane dead!!");
+        lostGame.show();
         scene.stop();
 
     }

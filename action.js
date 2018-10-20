@@ -141,7 +141,7 @@ function checkBombPlaneCollision() {
     if(bomb.collidesWith(plane)) {
         plane.score = plane.score + 1;
         //score board
-        scoreBoard.innerHTML = "Lives: " + (45 - plane.score);
+        scoreBoard.innerHTML = "Lives: " + (15 - plane.score);
         console.log(plane.score);
     }
 }
@@ -151,19 +151,24 @@ function checkPlaneTreeCollision() {
     if(plane.collidesWith(tree)) {
         plane.score = plane.score + 1;
         //score board
-        scoreBoard.innerHTML = "Lives: " + (45 - plane.score);
+        scoreBoard.innerHTML = "Lives: " + (15 - plane.score);
         console.log(plane.score);
     }
 }
 
 // checks for plane's death
 function planeDead() {
-    if(plane.score > 44) {
+    if(plane.score > 14) {
         //game over
         console.log("Plane dead!!");
         lostGame.show();
         scene.stop();
 
     }
+}
+
+// restart game with this method when restart button is pressed
+function restart() {
+    document.location.href = "";
 }
 

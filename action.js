@@ -140,6 +140,8 @@ function checkPlanePadCollision() {
 function checkBombPlaneCollision() {
     if(bomb.collidesWith(plane)) {
         plane.score = plane.score + 1;
+        //score board
+        scoreBoard.innerHTML = "Lives: " + (45 - plane.score);
         console.log(plane.score);
     }
 }
@@ -148,13 +150,15 @@ function checkBombPlaneCollision() {
 function checkPlaneTreeCollision() {
     if(plane.collidesWith(tree)) {
         plane.score = plane.score + 1;
+        //score board
+        scoreBoard.innerHTML = "Lives: " + (45 - plane.score);
         console.log(plane.score);
     }
 }
 
 // checks for plane's death
 function planeDead() {
-    if(plane.score > 0) {
+    if(plane.score > 44) {
         //game over
         console.log("Plane dead!!");
         lostGame.show();

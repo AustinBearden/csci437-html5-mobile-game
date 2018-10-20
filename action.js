@@ -140,6 +140,8 @@ function checkPlanePadCollision() {
 function checkBombPlaneCollision() {
     if(bomb.collidesWith(plane)) {
         plane.score = plane.score + 1;
+        explosionMp3.play();
+        explosionOgg.play();
         //score board
         scoreBoard.innerHTML = "Lives: " + (15 - plane.score);
         console.log(plane.score);
@@ -150,6 +152,8 @@ function checkBombPlaneCollision() {
 function checkPlaneTreeCollision() {
     if(plane.collidesWith(tree)) {
         plane.score = plane.score + 1;
+        crashMp3.play();
+        crashOgg.play();
         //score board
         scoreBoard.innerHTML = "Lives: " + (15 - plane.score);
         console.log(plane.score);
@@ -166,6 +170,16 @@ function planeDead() {
 
     }
 }
+
+// create initalizeSounds method
+initializeSounds = function() {
+    explosionMp3 = new Sound("Explode.mp3");
+    explosionOgg = new Sound("Explode.ogg");
+
+    crashMp3 = new Sound("Crash.mp3");
+    crashOgg = new Sound("Crash.ogg");
+
+};
 
 // restart game with this method when restart button is pressed
 function restart() {

@@ -16,7 +16,17 @@
         var landingPad;
         var lostGame;
         var winGame;
+
+        //joystick
         var joystick;
+
+        //sounds
+        var explosionMp3;
+        var explosionOgg;
+        var crashMp3;
+        var crashOgg;
+
+
 
         function init() {
             //create instances
@@ -33,6 +43,9 @@
             winGame.hide();
             //initialize joystick
             joystick = new Joy();
+
+            //initalizing the sounds
+            initializeSounds();
             
             scene.setSize(950, 450);
             scene.start();

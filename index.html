@@ -1,118 +1,93 @@
-<!DOCTYPE html>
-<html lang="en-US">
-<!-- 
-    Author: Austin Bearden
-    Date Created: September 23rd, 2018
-    Purpose: Created simple game fro...
-    Using Andy Harris' code example from http://aharrisbooks.net/h5g/h5g_13/platform/
-
+<!DOCTYPE hmtl>
+<!--
+Author: Austin Bearden
+Date Created: Wednesday, October 17th, 2018
+Purpose: Create and HTML5 Mobile Game
+Description: Game is about saving unmaned jets by jumping aboard them and flying them safely
 -->
-<head>
+<html lang="en-US">
+<header>
     <meta charset="UTF-8">
-    <title>Simple Game Sample : aibearde</title>
     <script type="text/javascript" src="simpleGame.js"></script>
+    <script type="text/javascript" src="action.js"></script>
     <script type="text/javascript">
-    // sample game
 
-    var scene;
-    var character;
-    var plane;
+        // my globals
+        var scene;
+        var background;
+        var character;
+        var plane;
+        var bomb;
+        var tree;
+        var landingPad;
+        var lostGame;
+        var winGame;
 
-    function Character() {
-        oneCharacter = new Sprite(scene, "StickMan.png", 55.4, 100);
-        oneCharacter.setSpeed(0);
-        oneCharacter.setPosition(100, 400);
-        oneCharacter.falling = true;
+        //joystick
+        var joystick;
 
-        oneCharacter.checkKeys = function() {
-            if (keysDown[K_LEFT]) {
-                this.changeXby(-5);
-            }
-            if (keysDown[K_RIGHT]) {
-                this.changeXby(5);
-            }
-            if (keysDown[K_UP]) {
+        //sounds
+        var explosionMp3;
+        var explosionOgg;
+        var crashMp3;
+        var crashOgg;
 
-                if (this.falling == false) {
-                    this.setImage("StickMan.png");
-                    this.y -= 5;
-                    this.falling = true;
-                    this.addVector(0, 15);
-                } else {
-                    checkFalling();
-                } // end if
-            } // end checkKeys
+
+        function init() {
+            //create instances
+            scene = new Scene();
+            background = new Background();
+            character = new Character();
+            plane = new Plane();
+            bomb = new Bomb();
+            tree = new Tree();
+            landingPad = new LandingPad();
+            lostGame = new LostGame();
+            lostGame.hide();
+            winGame = new WinGame();
+            winGame.hide();
+            //initialize joystick
+            joystick = new Joy();
+
+            //initalizing the sounds
+            initializeSounds();
+            
+            scene.setSize(950, 450);
+            scene.start();
+
         }
 
-        oneCharacter.checkGravity = function() {
-            if (this.falling) {
-                this.addVector(180, 1);
-                // stop if on floor
-                if (this.y >= 550) {
-                    this.setImage("StickMan.png")
-                    this.falling = false;
-                    this.setSpeed(0);
-                } // end if
-            } // end if
-        } // end checkGravity
-
-        return oneCharacter;
-    } // end character def
-
-    //create plane the flies across the screen
-    function Plane() {
-        thePlane = new Sprite(scene, "AirPlaneWithoutMan.png", 150, 100);
-        thePlane.setSpeed(-5);
-        thePlane.setPosition(400, 400);
-        thePlane.falling = false;
-
-        
-        return thePlane;
-    }
-
-    function checkFalling() {
-        character.falling = true;
-    } // end checkFalling
-
-    /*
-    We need to check at all times whether 
-    plane and character at intersecting. If they are.
-    we need guy character to disappear and plane to 
-    chage to image with guy in plane.
-    */
-    function checkTouch() {
-        if(character.collidesWith(plane)) {
-            // remove chacater picture
-            character.hide();
-            // update plane picture
-            plane.changeImage("AirPlaneWithMan.png");
+        function update() {
+            scene.clear();
+            background.update();
+            checkGuyPlaneCollision();
+            checkPlanePadCollision();
+            checkBombPlaneCollision();
+            checkPlaneTreeCollision();
+            planeDead();
+            character.checkCharacterTouchMove();
+            character.update();
+            character.checkBounds();
+            plane.checkPlaneTouchMove();
+            plane.update();
+            bomb.update();
+            tree.update();
+            landingPad.update();
+            lostGame.update();
+            winGame.update();
+            
         }
-    } // end checkTouch
-    
-    function init() {
-        scene = new Scene();
-        character = new Character();
-        plane = new Plane();
-        scene.start();
-    }
-
-    function update() {
-        scene.clear();
-
-        checkTouch();
-
-        character.checkKeys();
-        character.checkGravity();
-     
-        plane.update();
-        character.update();
-        
-    } // end update
-
-    
     </script>
-</head>
-<body onload = "init()">
+</header>
 
+<body onload = "init()">
+    <!-- score board -->
+    <div id="scoreBoard">Lives: 15</div>
+    <!-- restart game -->
+    <div id="reset">
+        <button type="button" onclick = "restart()"> Play Again </button>
+    </div>
+    
+    
 </body>
 </html>
